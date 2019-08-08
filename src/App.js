@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
+import {Switch, Route} from 'react-router-dom' 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import Navbar from './component/Navbar';
+import ProductList from './component/ProductList';
+import Details from './component/Details';
+import Cart from './component/Cart';
+import Default from './component/Default';
+
 // import logo from './logo.svg';
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-6">column one</div>
-          <div className="col-6">
-            <span>
-            <i className="fas fa-home"></i> 
-            </span>
-          </div>
-        </div>
-      </div>
+      <React.Fragment>
+        <Navbar/>
+        <Switch>
+            <Route exact path="/" component ={ProductList} />
+            <Route path="/details" component ={Details}/>
+            <Route path="/cart" component ={Cart}/>
+            <Route component ={Default}/>
+        </Switch>
+        
+      </React.Fragment>
     );
   }
 }
