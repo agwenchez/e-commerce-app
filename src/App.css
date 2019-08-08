@@ -17,6 +17,7 @@ body{
     text-transform: uppercase;
     font-family: "Permanent Marker" , cursive;
     letter-spacing: 0.3rem;
+    
 }
 
 .tex-blue{
@@ -27,35 +28,11 @@ body{
     color: var(--lightBlue);
 }
 
-
-.button{
-    text-transform: capitalize;
-    font-size: 1.2rem;
-    background: transparent;
-    border:0.05rem solid var(--lightBlue);
-    color: var(--lightBlue);
-    border-radius: 0.5rem;
-    padding: 0.2rem 0.5rem;
-    cursor: pointer;
-    margin: 0.2rem 0.5rem 0.2rem 0;
-    transition: all 0.5s ease-in-out
+.row{
+    display: flex;
 }
 
-.button:hover{
-    background: var(--lightBlue);
-    color: var(--mainBlue);
-}
 
-.button:focus{
-    outline: none;
-}
 
-.nav{
-    background: var(--mainBlue);
-}
 
-.nav-link{
-    color: var(--mainWhite) !important;
-    font-size: 1.3rem;
-    text-transform:capitalize;
-}
+
