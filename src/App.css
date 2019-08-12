@@ -11,6 +11,7 @@ body{
     font-family: "Oswald", sans-serif !important;
     background: var(--mainWhite) !important;
     color: var(--mainDark) !important;
+    align-content: center;
 }
 
 .text-title{
@@ -29,7 +30,7 @@ body{
 }
 
 .row{
-    display: flex;
+    /* display: flex; */
 }
 
 
