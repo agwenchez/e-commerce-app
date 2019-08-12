@@ -8,7 +8,10 @@ const ProductContext = React.createContext();
          cart:[],
          detailProduct,
          modalProduct:detailProduct,
-         modalOpen: true
+         modalOpen: false,
+         cartSubtotal: 0,
+         cartTax:0,
+         cartTotal:0
     };
 
     componentDidMount(){
@@ -53,7 +56,9 @@ const ProductContext = React.createContext();
         product] };
           
       },
-       ()=>{console.log(this.state);}
+       ()=>{
+          this.addTotals();
+       }
       )
     };
 
@@ -69,6 +74,46 @@ const ProductContext = React.createContext();
             return {modalOpen:false};
         })
     }
+
+
+    increment =id =>{
+        console.log("increment by 1")
+    }
+
+    decrement =id =>{
+        console.log("decrement by 1")
+    }
+
+    removeItem =id =>{
+        console.log("item removed")
+    }
+
+    clearCart= () =>{
+        this.setState(()=>{
+            return {cart:[]};
+        },()=>{
+            this.setProducts();
+            this.addTotals();
+        })
+    }
+
+    addTotals = ()=>{
+        let subTotal = 0;
+        this.state.cart.map(item =>(subTotal += item.total));
+        const tempTax = subTotal * 0.16;
+        const tax = parseFloat(tempTax.toFixed(2));
+        const total = subTotal + tax;
+        this.setState(()=>{
+            return{
+                cartSubtotal : subTotal,
+                cartTotal:total,
+                cartTax: tax
+
+            }
+        })
+    }
+
+
     render() {
         return (
             <ProductContext.Provider value={{
@@ -76,8 +121,11 @@ const ProductContext = React.createContext();
                 handleDetail:this.handleDetail,
                 addToCart:this.addToCart,
                 openModal: this.openModal,
-                closeModal:this.closeModal
-
+                closeModal:this.closeModal,
+                increment:this.increment,
+                decrement:this.decrement,
+                removeItem:this.removeItem,
+                clearCart:this.clearCart
             }}
             >
               {this.props.children}
