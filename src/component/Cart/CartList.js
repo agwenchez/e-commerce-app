@@ -2,8 +2,7 @@ import React from 'react'
 import CartItem from './CartItem'
 // import { ProductConsumer } from '../../context';
 export default function CartList({value}) {
-    const {cart}=value
-    console.log(value,cart);
+    const {cart}=value;
     return (
      
         <div className="container-fluid">
