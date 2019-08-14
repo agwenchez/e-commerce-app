@@ -12,6 +12,7 @@
     "nodemon": "^1.19.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.0.1",
     "react-scripts": "2.1.1",
     "simple-flexbox": "^2.2.1",
